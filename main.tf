@@ -3,12 +3,12 @@ provider "aws" {
 }
 
 
-resource "aws_instance" "ec2usinggithubactions" {
+resource "aws_instance" "Terraform-ec2-example" {
   ami           = "ami-04a37924ffe27da53"  # Change to your preferred AMI
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ec2usinggithubactions"
+    Name = "Terraform-ec2-example"
   }
 
 
