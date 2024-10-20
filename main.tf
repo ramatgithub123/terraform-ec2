@@ -11,9 +11,15 @@ resource "aws_instance" "Terraform-ec2-example" {
     Name = "Terraform-ec2-example"
   }
 
+
+user_data = <<-EOF
+            #!/bin/bash
+            sudo yum update -y
+            sudo yum install -y docker
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+            sudo install minikube-linux-amd64 /usr/local/bin/minikube
+            EOF
 }
 
-provider "kubernetes" {
-  config_path    = "~/.kube/config"
-  config_context = "minikube"
-}
