@@ -11,6 +11,9 @@ resource "aws_instance" "Terraform-ec2-example" {
     Name = "Terraform-ec2-example"
   }
 
-
 }
 
+provider "kubernetes" {
+  config_path    = "~/.kube/config"
+  config_context = "minikube"
+}
