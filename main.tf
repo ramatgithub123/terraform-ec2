@@ -25,7 +25,7 @@ provisioner "remote-exec" {
  connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("C:/Users/913486/learn/key/ec2")
+    private_key = file("ec2_key.pem")
     host        = "${aws_instance.Terraform-ec2-example.public_ip}"
   }
 }
