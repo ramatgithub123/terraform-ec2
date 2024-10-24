@@ -1,4 +1,4 @@
-name: Terraform
+name: Terraform Create Ec2
 
 on:
   workflow_dispatch:
