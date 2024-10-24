@@ -1,7 +1,7 @@
 name: Terraform
 
  on:
-    workflow_dispatch:
+   workflow_dispatch:
 #   push:
 #     branches:
 #       - main
@@ -55,3 +55,12 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
 
+    - name: Commit and Push State File
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add terraform.tfstate
+        git commit -m "Update Terraform state"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
