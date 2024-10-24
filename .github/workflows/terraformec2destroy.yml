@@ -50,6 +50,9 @@ jobs:
 
     - name: Terraform Plan
       run: terraform plan
+    
+    - name: Terraform destroy
+      run: terraform destroy
 
     - name: Commit and Push State File
       run: |
