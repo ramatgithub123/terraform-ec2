@@ -48,7 +48,7 @@ jobs:
     - name: Import EC2 Instance into Terraform
       run: |
         INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=Terraform-ec2-example" --query "Reservations[*].Instances[*].InstanceId" --output text)
-        terraform import aws_instance.example $INSTANCE_ID
+        terraform import aws_instance.Terraform-ec2-example $INSTANCE_ID
 
     - name: Apply Terraform
       run: terraform apply -auto-approve
