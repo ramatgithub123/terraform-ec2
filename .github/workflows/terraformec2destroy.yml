@@ -1,4 +1,4 @@
-name: Terraform
+name: Terraform Ec2 destroy
 
 on:
   workflow_dispatch:
